@@ -28,3 +28,5 @@ doc/api/
 .idea
 
 # End of https://www.toptal.com/developers/gitignore/api/dart
+/.flutter-plugins
+/.flutter-plugins-dependencies
