@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'file:///E:/Dev/Projects/PantryMeals/pantry_meals/lib/views/pantry.dart';
+import 'package:pantry_meals/pages/pantry.dart';
 
 class PantryNavigationTile extends StatelessWidget {
-  final _title = "My Pantry";
+  final String _title = "My Pantry";
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class PantryNavigationTile extends StatelessWidget {
       onTap: () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (BuildContext context) => PantryView()),
+          MaterialPageRoute(builder: (BuildContext context) => PantryPage()),
         );
       },
     );

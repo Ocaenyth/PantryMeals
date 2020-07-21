@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'file:///E:/Dev/Projects/PantryMeals/pantry_meals/lib/views/home.dart';
+import 'package:pantry_meals/pages/home.dart';
 
 class HomeNavigationTile extends StatelessWidget {
-  final _title = "Home";
+  final String _title = "Home";
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +11,7 @@ class HomeNavigationTile extends StatelessWidget {
       onTap: () {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (BuildContext context) => HomeView()),
+          MaterialPageRoute(builder: (BuildContext context) => HomePage()),
         );
       },
     );

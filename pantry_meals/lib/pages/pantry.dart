@@ -3,36 +3,38 @@ import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
 import 'package:pantry_meals/navigation/navigation_drawer.dart';
 
-class PantryView extends StatefulWidget {
+class PantryPage extends StatefulWidget {
   @override
-  PantryViewState createState() => PantryViewState();
+  PantryPageState createState() => PantryPageState();
 }
 
-class PantryViewState extends State<PantryView> {
+class PantryPageState extends State<PantryPage> {
+  final String _title = "My Pantry";
   ScanResult scanResult;
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "Pantry Meals",
-      theme: ThemeData(
-        primaryColor: Colors.purple,
+    return Scaffold(
+      drawer: NavigationDrawer(),
+      appBar: AppBar(
+        title: Text(_title),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.camera),
+            tooltip: "Scan",
+            onPressed: scan,
+          )
+        ],
       ),
-      home: Scaffold(
-        drawer: NavigationDrawer(),
-        appBar: AppBar(
-          title: Text('Barcode Scanner Example'),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.camera),
-              tooltip: "Scan",
-              onPressed: scan,
-            )
-          ],
-        ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _addFoodToPantry,
+        child: Icon(Icons.add),
+        backgroundColor: Colors.red,
       ),
     );
   }
+
+  void _addFoodToPantry() {}
 
   Future scan() async {
     try {
