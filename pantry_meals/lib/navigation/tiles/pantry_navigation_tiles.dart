@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pantry_meals/pages/pantry.dart';
+import 'package:pantry_meals/pages/pantry/pantry.dart';
 
 class PantryNavigationTile extends StatelessWidget {
   final String _title = "My Pantry";

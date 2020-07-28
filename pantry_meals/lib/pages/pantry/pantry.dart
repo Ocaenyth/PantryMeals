@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/services.dart';
 import 'package:pantry_meals/navigation/navigation_drawer.dart';
+import 'package:pantry_meals/pages/pantry/add_food_dialog.dart';
 
 class PantryPage extends StatefulWidget {
   @override
@@ -27,14 +28,17 @@ class PantryPageState extends State<PantryPage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _addFoodToPantry,
+        onPressed: _openAddFoodDialog,
         child: Icon(Icons.add),
         backgroundColor: Colors.red,
       ),
+//      body: AddFoodDialog(),
     );
   }
 
-  void _addFoodToPantry() {}
+  void _openAddFoodDialog() {
+    showDialog(context: context, builder: (_) => AddFoodDialog());
+  }
 
   Future scan() async {
     try {
