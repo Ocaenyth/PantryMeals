@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pantry_meals/pages/home.dart';
+import 'package:pantry_meals/pages/home_page.dart';
 
 class HomeNavigationTile extends StatelessWidget {
   final String _title = "Home";

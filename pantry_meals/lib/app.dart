@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pantry_meals/pages/home.dart';
+import 'package:pantry_meals/pages/pantry/pantry_page.dart';
 
 void main() => runApp(App());
 
@@ -9,7 +9,7 @@ class App extends StatelessWidget {
     final String _title = "Pantry Meals";
     return MaterialApp(
       title: _title,
-      home: HomePage(),
+      home: PantryPage(),
     );
   }
 }
