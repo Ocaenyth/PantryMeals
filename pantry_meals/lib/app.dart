@@ -45,11 +45,7 @@ class _AppState extends State<App> {
 
   _fetchLocale() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String languageCode = prefs.getString('language_code');
-
-    if (languageCode == null) {
-      languageCode = 'fr';
-    }
+    String languageCode = prefs.getString('language_code') ?? 'en';
 
     return Locale(languageCode, '');
   }

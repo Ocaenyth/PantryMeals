@@ -10,11 +10,22 @@ class AppLocalizations {
   }
 
   static Map<String, Map<String, String>> _localizedValues = {
-    'en': {},
-    'fr': {},
+    'en': {
+      'pantryPageTitle': "My Pantry",
+    },
+    'fr': {
+      'pantryPageTitle': "Mon Garde-manger",
+    },
   };
 
   String _get(String key) {
-    return _localizedValues[locale.languageCode][key];
+    if (_localizedValues[locale.languageCode].containsKey(key)) {
+      return _localizedValues[locale.languageCode][key];
+    }
+    return "Unimplemented: ${locale.languageCode}.$key";
+  }
+
+  String get pantryPageTitle {
+    return _get('pantryPageTitle');
   }
 }
