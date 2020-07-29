@@ -2,6 +2,7 @@ import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:pantry_meals/localization/app_localizations.dart';
 
 class AddFoodBarcodeButton extends StatelessWidget {
   final Icon _icon = Icon(Icons.camera_alt);
@@ -10,11 +11,11 @@ class AddFoodBarcodeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       child: _icon,
-      onPressed: () => _openBarcodeReader(),
+      onPressed: () => _openBarcodeReader(context),
     );
   }
 
-  void _openBarcodeReader() async {
+  void _openBarcodeReader(BuildContext context) async {
     try {
       ScanResult scanResults;
 
@@ -24,9 +25,10 @@ class AddFoodBarcodeButton extends StatelessWidget {
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.cameraAccessDenied) {
         Fluttertoast.showToast(
-            msg: 'Camera permissions are required for this feature');
+            msg: AppLocalizations.of(context).cameraPermissionRequired);
       } else {
-        Fluttertoast.showToast(msg: 'Unknown error: $e');
+        Fluttertoast.showToast(
+            msg: '${AppLocalizations.of(context).unknownError}: $e');
       }
     }
   }
