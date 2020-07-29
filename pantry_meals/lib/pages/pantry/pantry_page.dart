@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:pantry_meals/localization/app_localizations.dart';
 import 'package:pantry_meals/navigation/navigation_drawer.dart';
 import 'package:pantry_meals/pages/pantry/add_food_dialog.dart';
 
@@ -8,21 +10,18 @@ class PantryPage extends StatefulWidget {
 }
 
 class PantryPageState extends State<PantryPage> {
-  final String _title = "My Pantry";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavigationDrawer(),
       appBar: AppBar(
-        title: Text(_title),
+        title: Text(AppLocalizations.of(context).pantryPageTitle),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _openAddFoodDialog,
         child: Icon(Icons.add),
         backgroundColor: Colors.red,
       ),
-//      body: AddFoodDialog(),
     );
   }
 
