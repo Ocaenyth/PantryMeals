@@ -30,6 +30,7 @@ dependencies:
   fluttertoast: ^7.0.1+1
   flutter_localizations:
     sdk: flutter
+  shared_preferences: ^0.5.8
 
 dev_dependencies:
   flutter_test:
