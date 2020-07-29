@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pantry_meals/localization/app_localizations.dart';
 import 'package:pantry_meals/pages/home_page.dart';
 
 class HomeNavigationTile extends StatelessWidget {
-  final String _title = "Home";
-
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: Text(_title),
+      title: Text(AppLocalizations.of(context).homeNavigationTileName),
       onTap: () {
         Navigator.pushReplacement(
           context,
