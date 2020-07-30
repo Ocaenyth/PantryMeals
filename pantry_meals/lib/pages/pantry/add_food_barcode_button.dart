@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pantry_meals/localization/app_localizations.dart';
+import 'package:pantry_meals/services/open_food_facts_service.dart';
 
 class AddFoodBarcodeButton extends StatelessWidget {
   final Icon _icon = Icon(Icons.camera_alt);
@@ -21,6 +22,7 @@ class AddFoodBarcodeButton extends StatelessWidget {
 
       scanResults = await BarcodeScanner.scan();
 //      TODO: Send result to API request (OpenFF) > Add to persistence
+      OpenFoodFactsService.getFoodFromBarcode(scanResults.rawContent);
       Fluttertoast.showToast(msg: scanResults.rawContent);
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.cameraAccessDenied) {
