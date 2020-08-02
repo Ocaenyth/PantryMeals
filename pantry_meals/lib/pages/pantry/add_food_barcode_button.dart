@@ -2,8 +2,8 @@ import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:pantry_meals/entities/food.dart';
 import 'package:pantry_meals/localization/app_localizations.dart';
+import 'package:pantry_meals/persistence/entities/food.dart';
 import 'package:pantry_meals/services/food_service.dart';
 
 class AddFoodBarcodeButton extends StatelessWidget {

@@ -1,5 +1,5 @@
-import 'package:pantry_meals/entities/database.dart';
-import 'package:pantry_meals/entities/food.dart';
+import 'package:pantry_meals/persistence/database.dart';
+import 'package:pantry_meals/persistence/entities/food.dart';
 import 'package:pantry_meals/services/open_food_facts_service.dart';
 
 class FoodService {

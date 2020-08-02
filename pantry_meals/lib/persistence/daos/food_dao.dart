@@ -1,5 +1,5 @@
 import 'package:floor/floor.dart';
-import 'package:pantry_meals/entities/food.dart';
+import 'package:pantry_meals/persistence/entities/food.dart';
 
 @dao
 abstract class FoodDao {

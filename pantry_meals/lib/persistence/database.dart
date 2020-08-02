@@ -1,7 +1,7 @@
 import 'dart:async';
+import 'package:pantry_meals/persistence/daos/food_dao.dart';
+import 'package:pantry_meals/persistence/entities/food.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
-import 'package:pantry_meals/entities/food.dart';
-import 'package:pantry_meals/entities/daos/food_dao.dart';
 
 import 'package:floor/floor.dart';
 

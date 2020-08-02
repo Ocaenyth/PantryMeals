@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:pantry_meals/entities/food.dart';
+import 'package:pantry_meals/persistence/entities/food.dart';
 
 class OpenFoodFactsService {
   static const String countryCode = "world";
