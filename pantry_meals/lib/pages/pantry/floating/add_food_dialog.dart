@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pantry_meals/pages/pantry/add_food_barcode_button.dart';
-import 'package:pantry_meals/pages/pantry/add_food_manually_button.dart';
+import 'package:pantry_meals/pages/pantry/floating/add_food_barcode_button.dart';
+import 'package:pantry_meals/pages/pantry/floating/add_food_manually_button.dart';
 
 class AddFoodDialog extends StatelessWidget {
   @override

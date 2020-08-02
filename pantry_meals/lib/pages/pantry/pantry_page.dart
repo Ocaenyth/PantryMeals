@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pantry_meals/localization/app_localizations.dart';
 import 'package:pantry_meals/navigation/navigation_drawer.dart';
-import 'package:pantry_meals/pages/pantry/add_food_dialog.dart';
+import 'package:pantry_meals/pages/pantry/floating/add_food_dialog.dart';
+import 'package:pantry_meals/pages/pantry/items/pantry_item_card.dart';
 
 class PantryPage extends StatefulWidget {
   @override
