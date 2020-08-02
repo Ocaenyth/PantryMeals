@@ -27,6 +27,9 @@ doc/api/
 
 .idea
 
+# Avoid committing generated dart files (by floor)
+*.g.dart
+
 # End of https://www.toptal.com/developers/gitignore/api/dart
 /.flutter-plugins
 /.flutter-plugins-dependencies

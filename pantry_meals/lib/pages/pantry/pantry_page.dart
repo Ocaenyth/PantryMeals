@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pantry_meals/localization/app_localizations.dart';
 import 'package:pantry_meals/navigation/navigation_drawer.dart';
 import 'package:pantry_meals/pages/pantry/add_food_dialog.dart';
