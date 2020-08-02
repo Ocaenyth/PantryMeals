@@ -38,7 +38,6 @@ class _AppState extends State<App> {
     this._fetchLocale().then((locale) {
       setState(() {
         this.locale = locale;
-        print(this.locale.languageCode);
       });
     });
   }
