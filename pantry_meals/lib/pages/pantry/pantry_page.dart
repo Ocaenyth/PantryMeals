@@ -22,6 +22,7 @@ class PantryPageState extends State<PantryPage> {
         child: Icon(Icons.add),
         backgroundColor: Colors.red,
       ),
+      body: PantryItemCard(),
     );
   }
 
