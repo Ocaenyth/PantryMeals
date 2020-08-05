@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pantry_meals/pages/pantry/items/informations/pantry_item_expiration.dart';
+import 'package:pantry_meals/pages/pantry/items/informations/pantry_item_name.dart';
+import 'package:pantry_meals/pages/pantry/items/informations/pantry_item_nutriscore.dart';
+import 'package:pantry_meals/pages/pantry/items/informations/pantry_item_quantity.dart';
 
 class PantryItemInformations extends StatelessWidget {
-  static const String nutri = "b";
-
   @override
   Widget build(BuildContext context) {
-//    TODO: use column ?
 //  TODO: Use actual food information
     return Container(
       margin: EdgeInsets.all(5),
@@ -13,20 +14,8 @@ class PantryItemInformations extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Text(
-            "Brioche tressée",
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
-          ),
-          Text(
-            "Expire le Lun 03 Aout",
-            style: TextStyle(
-              color: Colors.grey,
-              fontStyle: FontStyle.italic,
-            ),
-          ),
+          PantryItemName(),
+          PantryItemExpiration(),
           Expanded(
             child: Container(
               constraints: BoxConstraints.expand(),
@@ -35,24 +24,11 @@ class PantryItemInformations extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     flex: 1,
-                    child: Container(
-                      alignment: Alignment.bottomLeft,
-                      child: Image.asset(
-                        'res/nutriscore/$nutri.png',
-                        fit: BoxFit.fitWidth,
-                      ),
-                    ),
+                    child: PantryItemNutriscore(),
                   ),
                   Expanded(
                     flex: 2,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: <Widget>[
-                        Text("150 / 250g"),
-                        Text('Left: 2'),
-                      ],
-                    ),
+                    child: PantryItemQuantity(),
                   ),
                 ],
               ),
