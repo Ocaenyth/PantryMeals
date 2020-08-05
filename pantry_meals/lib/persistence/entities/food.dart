@@ -31,4 +31,22 @@ class Food {
       quantity: int.parse(quantity.toString()),
     );
   }
+
+  static Map<int, Food> listToIdMap(List<Food> foods) {
+    Map<int, Food> res = new Map<int, Food>();
+
+    for (Food food in foods) {
+      res[food.id] = food;
+    }
+    return res;
+  }
+
+  static Map<String, Food> listToBarcodeMap(List<Food> foods) {
+    Map<String, Food> res = new Map<String, Food>();
+
+    for (Food food in foods) {
+      res[food.barcode] = food;
+    }
+    return res;
+  }
 }
