@@ -3,10 +3,16 @@ import 'package:pantry_meals/persistence/entities/food.dart';
 import 'package:pantry_meals/services/open_food_facts_service.dart';
 
 class FoodService {
-  static Future<Food> insertFood(Food food) async {
+  static Future<Food> insertFood(Food newFood) async {
     AppDatabase db = await AppDatabase.getDatabase();
-    await db.foodDao.insertFood(food);
-    return food;
+    Food oldFood = await db.foodDao.findFoodByBarcode(newFood.barcode);
+
+    if (oldFood != null) {
+      return oldFood;
+    }
+
+    await db.foodDao.insertFood(newFood);
+    return newFood;
   }
 
   static Future<Food> insertFoodFromBarcode(String barcode) async {
