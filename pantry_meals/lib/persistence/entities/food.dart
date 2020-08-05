@@ -13,11 +13,11 @@ class Food {
 //  TODO: Ingredients
 //  TODO: Serving quantity
   @PrimaryKey(autoGenerate: true)
-  final int id;
+  int id;
 
-  final String barcode;
-  final String name;
-  final int quantity;
+  String barcode;
+  String name;
+  int quantity;
 
   Food({this.id, this.barcode, this.name, this.quantity});
 

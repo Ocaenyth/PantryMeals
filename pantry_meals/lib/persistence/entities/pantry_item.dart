@@ -15,12 +15,15 @@ class PantryItem {
   static const tableName = "pantry_item";
 
   @PrimaryKey(autoGenerate: true)
-  final int id;
+  int id;
 
   @ColumnInfo(name: 'food_id')
-  final int foodId;
+  int foodId;
 
-  final int leftQuantity;
+  @ignore
+  Food food;
 
-  PantryItem({this.id, this.foodId, this.leftQuantity});
+  int leftQuantity;
+
+  PantryItem({this.id, this.foodId, this.food, this.leftQuantity});
 }
