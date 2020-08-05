@@ -13,5 +13,5 @@ abstract class FoodDao {
   Future<Food> findFoodByBarcode(String barcode);
 
   @insert
-  Future<void> insertFood(Food food);
+  Future<int> insertFood(Food food);
 }

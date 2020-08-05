@@ -16,5 +16,5 @@ abstract class PantryItemDao {
   Future<PantryItem> findPantryItemByBarcode(String barcode);
 
   @insert
-  Future<void> insertPantryItem(PantryItem pantryItem);
+  Future<int> insertPantryItem(PantryItem pantryItem);
 }
