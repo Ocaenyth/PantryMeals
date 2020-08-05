@@ -6,7 +6,7 @@ import 'package:pantry_meals/services/food_service.dart';
 class PantryService {
   static Future<PantryItem> insertPantryItem(PantryItem pantryItem) async {
     AppDatabase db = await AppDatabase.getDatabase();
-    await db.pantryItemDao.insertPantryItem(pantryItem);
+    pantryItem.id = await db.pantryItemDao.insertPantryItem(pantryItem);
     return pantryItem;
   }
 

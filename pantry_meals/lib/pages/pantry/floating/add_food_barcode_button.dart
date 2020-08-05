@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pantry_meals/localization/app_localizations.dart';
-import 'package:pantry_meals/persistence/entities/food.dart';
-import 'package:pantry_meals/services/food_service.dart';
+import 'package:pantry_meals/persistence/entities/pantry_item.dart';
+import 'package:pantry_meals/services/pantry_service.dart';
 
 class AddFoodBarcodeButton extends StatelessWidget {
   final Icon _icon = Icon(Icons.camera_alt);
@@ -24,7 +24,8 @@ class AddFoodBarcodeButton extends StatelessWidget {
       return;
     }
 
-    Food food = await FoodService.insertFoodFromBarcode(scanResult.rawContent);
+    PantryItem pantryItem =
+        await PantryService.insertPantryItemFromBarcode(scanResult.rawContent);
   }
 
   Future<ScanResult> _scanBarcode(BuildContext context) async {

@@ -11,7 +11,7 @@ class FoodService {
       return oldFood;
     }
 
-    await db.foodDao.insertFood(newFood);
+    newFood.id = await db.foodDao.insertFood(newFood);
     return newFood;
   }
 
@@ -20,5 +20,15 @@ class FoodService {
 
     food = await insertFood(food);
     return food;
+  }
+
+  static Future<Food> findFoodById(int id) async {
+    AppDatabase db = await AppDatabase.getDatabase();
+    return db.foodDao.findFoodById(id);
+  }
+
+  static Future<List<Food>> findAllFood() async {
+    AppDatabase db = await AppDatabase.getDatabase();
+    return db.foodDao.findAllFood();
   }
 }
