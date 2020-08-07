@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pantry_meals/localization/app_localizations.dart';
 import 'package:pantry_meals/navigation/navigation_drawer.dart';
 import 'package:pantry_meals/pages/pantry/floating/add_food_dialog.dart';
+import 'package:pantry_meals/pages/pantry/items/informations/inherited_pantry_card.dart';
 import 'package:pantry_meals/pages/pantry/items/pantry_item_card.dart';
 import 'package:pantry_meals/persistence/entities/food.dart';
 import 'package:pantry_meals/persistence/entities/pantry_item.dart';
@@ -32,13 +33,17 @@ class _PantryPageState extends State<PantryPage> {
         title: Text(AppLocalizations.of(context).pantryPageTitle),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _openAddFoodDialog,
+        onPressed: () => _openAddFoodDialog(context),
         child: Icon(Icons.add),
         backgroundColor: Colors.red,
       ),
       body: Column(
         children: <Widget>[
-          for (ParsedPantryItem item in pantry ?? []) PantryItemCard(),
+          for (ParsedPantryItem item in pantry ?? [])
+            InheritedPantryCard(
+              item: item,
+              child: PantryItemCard(),
+            ),
         ],
       ),
     );

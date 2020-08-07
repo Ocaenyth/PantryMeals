@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantry_meals/pages/pantry/items/informations/inherited_pantry_card.dart';
 import 'package:pantry_meals/pages/pantry/items/pantry_item_informations.dart';
 
 class PantryItemCard extends StatelessWidget {
@@ -17,13 +18,16 @@ class PantryItemCard extends StatelessWidget {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Expanded(
+              Container(
                 child: Image(
-//                TODO: Add correct image
                   image: NetworkImage(
-                      'https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg'),
+                    InheritedPantryCard.of(context).item.food.imageUrl,
+                  ),
+                  fit: BoxFit.fill,
                 ),
-                flex: 1,
+                alignment: Alignment.centerLeft,
+                height: 150,
+                width: 100,
               ),
               Expanded(
                 child: PantryItemInformations(),
