@@ -12,6 +12,5 @@ class OpenFoodFactsService {
     http.Response res = await http.get(finalURL);
 
     return Food.fromJson(json.decode(res.body));
-//    TODO: create food object and return it https://flutter.dev/docs/cookbook/networking/fetch-data
   }
 }

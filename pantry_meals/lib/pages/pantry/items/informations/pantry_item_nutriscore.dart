@@ -9,7 +9,7 @@ class PantryItemNutriscore extends StatelessWidget {
     return Container(
       alignment: Alignment.bottomLeft,
       child: Image.asset(
-        'res/nutriscore/$nutriscore}.png',
+        'res/nutriscore/$nutriscore.png',
         fit: BoxFit.fitWidth,
       ),
     );

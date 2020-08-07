@@ -12,10 +12,10 @@ import 'package:pantry_meals/services/pantry_service.dart';
 
 class PantryPage extends StatefulWidget {
   @override
-  _PantryPageState createState() => _PantryPageState();
+  PantryPageState createState() => PantryPageState();
 }
 
-class _PantryPageState extends State<PantryPage> {
+class PantryPageState extends State<PantryPage> {
   List<PantryItem> pantryItems;
   List<ParsedPantryItem> pantry;
 
@@ -49,8 +49,30 @@ class _PantryPageState extends State<PantryPage> {
     );
   }
 
-  void _openAddFoodDialog() {
-    showDialog(context: context, builder: (_) => AddFoodDialog());
+  void addItem(PantryItem item) async {
+    item.food = await FoodService.findFoodById(item.foodId);
+    this.pantryItems.add(item);
+    this._addParsedItem(item);
+    setState(() {});
+  }
+
+  void _addParsedItem(PantryItem newItem) {
+    for (ParsedPantryItem parsedItem in this.pantry) {
+      if (parsedItem.food.id == newItem.foodId) {
+        parsedItem.items.add(newItem);
+        return;
+      }
+    }
+    ParsedPantryItem newParsed = ParsedPantryItem(food: newItem.food);
+    newParsed.items.add(newItem);
+    this.pantry.add(newParsed);
+  }
+
+  void _openAddFoodDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => AddFoodDialog(this),
+    );
   }
 
   void _updatePantry() async {
