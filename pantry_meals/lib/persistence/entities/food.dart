@@ -7,28 +7,43 @@ class Food {
   static const tableName = "food";
 
 //  TODO: Add nutritional values
-//  TODO: Add expiration date
 //  TODO: Expiration date prediction ?
 //  TODO: Add image / only image url ? / give the option to user ?
 //  TODO: Ingredients
-//  TODO: Serving quantity
   @PrimaryKey(autoGenerate: true)
   int id;
 
   String barcode;
   String name;
   int quantity;
+  double servingQuantity;
+  String nutriscore;
+  String expirationDate;
+  String imageUrl;
 
-  Food({this.id, this.barcode, this.name, this.quantity});
+  Food(
+      {this.id,
+      this.barcode,
+      this.name,
+      this.quantity,
+      this.servingQuantity,
+      this.nutriscore,
+      this.expirationDate,
+      this.imageUrl});
 
   factory Food.fromJson(Map<String, dynamic> json) {
     var quantity = json['product']['product_quantity'] ?? 0;
+    var servingQuantity = json['product']['serving_quantity'] ?? 0;
 
     return Food(
       id: json['id'],
       barcode: json['code'],
       name: json['product']['product_name'],
       quantity: int.parse(quantity.toString()),
+      servingQuantity: double.parse(servingQuantity.toString()),
+      nutriscore: json['product']['nutriscore_grade'],
+      expirationDate: json['product']['expiration_date'],
+      imageUrl: json['product']['image_url'],
     );
   }
 
