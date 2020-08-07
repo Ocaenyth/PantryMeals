@@ -1,4 +1,5 @@
 import 'package:floor/floor.dart';
+import 'package:pantry_meals/business/exceptions/product_not_found_exception.dart';
 
 @Entity(
   tableName: Food.tableName,
@@ -32,6 +33,10 @@ class Food {
       this.imageUrl});
 
   factory Food.fromJson(Map<String, dynamic> json) {
+    if (json['status'] == 0) {
+      throw ProductNotFoundException(json['id']);
+    }
+
     var quantity = json['product']['product_quantity'] ?? 0;
     var servingQuantity = json['product']['serving_quantity'] ?? 0;
 
