@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:pantry_meals/pages/pantry/add_food_barcode_button.dart';
-import 'package:pantry_meals/pages/pantry/add_food_manually_button.dart';
+import 'package:pantry_meals/pages/pantry/floating/add_food_barcode_button.dart';
+import 'package:pantry_meals/pages/pantry/floating/add_food_manually_button.dart';
+import 'package:pantry_meals/pages/pantry/pantry_page.dart';
 
 class AddFoodDialog extends StatelessWidget {
+  final PantryPageState pantryPageState;
+
+  AddFoodDialog(this.pantryPageState);
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -22,7 +27,7 @@ class AddFoodDialog extends StatelessWidget {
           child: Row(
             children: <Widget>[
               Expanded(
-                child: AddFoodBarcodeButton(),
+                child: AddFoodBarcodeButton(this.pantryPageState),
               ),
               Expanded(
                 child: AddFoodManuallyButton(),

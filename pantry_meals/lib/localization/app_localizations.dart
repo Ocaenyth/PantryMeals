@@ -20,6 +20,7 @@ class AppLocalizations {
       // --- ERRORS ---
       'cameraPermissionRequired':
           "Camera permissions are required for this feature",
+      'productNotFoundError': "Could not find this product",
       'unknownError': "Unknown error",
     },
     'fr': {
@@ -32,6 +33,7 @@ class AppLocalizations {
       // --- ERRORS ---
       'cameraPermissionRequired':
           "L'accès à la caméra est nécessaire pour cette fonctionnalité",
+      'productNotFoundError': "Impossible de trouver ce produit",
       'unknownError': "Erreur inconnue",
     },
   };
@@ -61,6 +63,10 @@ class AppLocalizations {
 
   String get cameraPermissionRequired {
     return _get('cameraPermissionRequired');
+  }
+
+  String get productNotFoundError {
+    return _get('productNotFoundError');
   }
 
   String get unknownError {

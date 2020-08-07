@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:pantry_meals/entities/food.dart';
+import 'package:pantry_meals/persistence/entities/food.dart';
 
 class OpenFoodFactsService {
   static const String countryCode = "world";
@@ -12,6 +12,5 @@ class OpenFoodFactsService {
     http.Response res = await http.get(finalURL);
 
     return Food.fromJson(json.decode(res.body));
-//    TODO: create food object and return it https://flutter.dev/docs/cookbook/networking/fetch-data
   }
 }
