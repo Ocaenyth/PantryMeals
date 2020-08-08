@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pantry_meals/pages/pantry/items/informations/inherited_pantry_card.dart';
-import 'package:pantry_meals/pages/pantry/items/pantry_item_informations.dart';
+import 'package:pantry_meals/pages/pantry/items/card/informations/inherited_pantry_card.dart';
+import 'package:pantry_meals/pages/pantry/items/card/pantry_item_informations.dart';
 
 class PantryItemCard extends StatelessWidget {
   @override

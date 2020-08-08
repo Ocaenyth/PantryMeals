@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pantry_meals/pages/pantry/items/informations/pantry_item_expiration.dart';
-import 'package:pantry_meals/pages/pantry/items/informations/pantry_item_name.dart';
-import 'package:pantry_meals/pages/pantry/items/informations/pantry_item_nutriscore.dart';
-import 'package:pantry_meals/pages/pantry/items/informations/pantry_item_quantity.dart';
+import 'package:pantry_meals/pages/pantry/items/card/informations/pantry_item_expiration.dart';
+import 'package:pantry_meals/pages/pantry/items/card/informations/pantry_item_name.dart';
+import 'package:pantry_meals/pages/pantry/items/card/informations/pantry_item_nutriscore.dart';
+import 'package:pantry_meals/pages/pantry/items/card/informations/pantry_item_quantity.dart';
 
 class PantryItemInformations extends StatelessWidget {
   @override
