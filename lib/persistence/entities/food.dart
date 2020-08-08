@@ -1,5 +1,5 @@
 import 'package:floor/floor.dart';
-import 'package:pantry_meals/business/exceptions/product_not_found_exception.dart';
+import 'package:pantry_meals/exceptions/product_not_found_exception.dart';
 
 @Entity(
   tableName: Food.tableName,

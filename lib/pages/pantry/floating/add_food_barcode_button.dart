@@ -2,7 +2,7 @@ import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:pantry_meals/business/exceptions/product_not_found_exception.dart';
+import 'package:pantry_meals/exceptions/product_not_found_exception.dart';
 import 'package:pantry_meals/localization/app_localizations.dart';
 import 'package:pantry_meals/pages/pantry/pantry_page.dart';
 import 'package:pantry_meals/persistence/entities/pantry_item.dart';
