@@ -17,6 +17,16 @@ class AppLocalizations {
       // --- NAVIGATION ---
       'homeNavigationTileName': "Home",
       'pantryNavigationTileName': "My Pantry",
+      // --- BUTTONS ---
+      'saveButton': "Save",
+      // --- FOOD ---
+      'remainingStock': "Remaining",
+      'perServing': "Per serving",
+      'max': "Max",
+      'inStock': "In Stock",
+      'expiryDate': "Date",
+      'remainingTime': "Remaining",
+      'expiryPrediction': "Prediction",
       // --- ERRORS ---
       'cameraPermissionRequired':
           "Camera permissions are required for this feature",
@@ -30,6 +40,16 @@ class AppLocalizations {
       // --- NAVIGATION ---
       'homeNavigationTileName': "Accueil",
       'pantryNavigationTileName': "Mon Garde-manger",
+      // --- BUTTONS ---
+      'saveButton': "Sauvegarder",
+      // --- FOOD ---
+      'remainingStock': "Restant",
+      'perServing': "Par part",
+      'max': "Max",
+      'inStock': "En Stock",
+      'expiryDate': "Date",
+      'remainingTime': "Restant",
+      'expiryPrediction': "Prédiction",
       // --- ERRORS ---
       'cameraPermissionRequired':
           "L'accès à la caméra est nécessaire pour cette fonctionnalité",
@@ -45,6 +65,8 @@ class AppLocalizations {
     return "Unimplemented: ${locale.languageCode}.$key";
   }
 
+  // --- PAGES ---
+
   String get pantryPageTitle {
     return _get('pantryPageTitle');
   }
@@ -53,6 +75,8 @@ class AppLocalizations {
     return _get('homePageTitle');
   }
 
+  // --- NAVIGATION ---
+
   String get homeNavigationTileName {
     return _get('homeNavigationTileName');
   }
@@ -60,6 +84,44 @@ class AppLocalizations {
   String get pantryNavigationTileName {
     return _get('pantryNavigationTileName');
   }
+
+  // --- BUTTONS ---
+
+  String get saveButton {
+    return _get('saveButton');
+  }
+
+  // --- FOOD ---
+
+  String get remainingStock {
+    return _get('remainingStock');
+  }
+
+  String get perServing {
+    return _get('perServing');
+  }
+
+  String get max {
+    return _get('max');
+  }
+
+  String get inStock {
+    return _get('inStock');
+  }
+
+  String get expiryDate {
+    return _get('expiryDate');
+  }
+
+  String get remainingTime {
+    return _get('remainingTime');
+  }
+
+  String get expiryPrediction {
+    return _get('expiryPrediction');
+  }
+
+  // --- ERRORS ---
 
   String get cameraPermissionRequired {
     return _get('cameraPermissionRequired');
