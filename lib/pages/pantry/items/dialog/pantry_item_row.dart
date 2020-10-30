@@ -45,6 +45,7 @@ class _PantryItemRowState extends State<PantryItemRow> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
+            // Description part
             child: Text(
               widget.rowName,
               style: TextStyle(
@@ -54,6 +55,7 @@ class _PantryItemRowState extends State<PantryItemRow> {
             ),
             width: 100,
           ),
+          // Input part
           SizedBox(
             width: 50,
             height: 30,

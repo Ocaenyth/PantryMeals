@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pantry_meals/localization/app_localizations.dart';
 import 'package:pantry_meals/pages/pantry/items/dialog/inherited_pantry_item_dialog.dart';
+import 'package:pantry_meals/pages/pantry/items/dialog/pantry_item_name_field.dart';
 import 'package:pantry_meals/pages/pantry/items/dialog/pantry_item_row.dart';
 import 'package:pantry_meals/persistence/entities/parsed_pantry_item.dart';
 
@@ -10,10 +11,13 @@ class PantryItemDialog extends StatefulWidget {
 }
 
 class PantryItemDialogState extends State<PantryItemDialog> {
+  PantryItemNameField itemNameTextField;
+
   PantryItemRow remainingQtyRow;
   PantryItemRow servingRow;
   PantryItemRow maxRow;
   PantryItemRow stockRow;
+  PantryItemRow totalRow;
 
   PantryItemRow dateRow;
   PantryItemRow remainingTimeRow;
@@ -24,49 +28,13 @@ class PantryItemDialogState extends State<PantryItemDialog> {
     final ParsedPantryItem item =
         InheritedPantryItemDialog.of(context).pantryItem;
 
-    PantryItemRow remainingQtyRow = PantryItemRow(
-      rowName: "Remaining",
-      initialValue: item.items[0].leftQuantity,
-    );
-    PantryItemRow servingRow = PantryItemRow(
-      rowName: "Per serving",
-      initialValue: item.food.servingQuantity.round(),
-    );
-    PantryItemRow maxRow = PantryItemRow(
-      rowName: "Max",
-      initialValue: item.food.quantity,
-    );
-    PantryItemRow stockRow = PantryItemRow(
-      rowName: "In stock",
-      initialValue: item.getStockQuantity(),
-      enabled: false,
-    );
-    PantryItemRow totalRow = PantryItemRow(
-      rowName: "Total",
-      initialValue: item.getTotalRemainingQuantity(),
-      enabled: false,
-    );
-
-//TODO: Add expiration date + Remaining time + Expiration prediction
-    PantryItemRow dateRow = PantryItemRow(
-      rowName: "Date",
-//      initialValue: item.items[0].expirationDate,
-    );
-    PantryItemRow remainingTimeRow = PantryItemRow(
-        rowName: "Remaining",
-//        initialValue: item.items[0].getRemainingTime(),
-        enabled: false);
-    PantryItemRow predictionRow = PantryItemRow(
-      rowName: "Prediction",
-//      initialValue: item.food.expirationPrediction,
-    );
-
+    this._setRows(item);
     return Dialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Container(
-        height: 530,
+        height: 550,
         child: Card(
           clipBehavior: Clip.antiAliasWithSaveLayer,
           margin: EdgeInsets.all(0),
@@ -85,13 +53,7 @@ class PantryItemDialogState extends State<PantryItemDialog> {
                 height: 150,
                 width: 300,
               ),
-              Text(
-                item.food.name,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 28,
-                ),
-              ),
+              this.itemNameTextField,
               Container(
                 width: 300,
                 child: Column(
@@ -134,5 +96,55 @@ class PantryItemDialogState extends State<PantryItemDialog> {
         ),
       ),
     );
+  }
+
+  void _setRows(ParsedPantryItem item) {
+    itemNameTextField = PantryItemNameField(
+      initialName: item.food.name,
+    );
+
+    remainingQtyRow = PantryItemRow(
+      rowName: "Remaining",
+      initialValue: item.items[0].leftQuantity,
+    );
+    servingRow = PantryItemRow(
+      rowName: "Per serving",
+      initialValue: item.food.servingQuantity.round(),
+    );
+    maxRow = PantryItemRow(
+      rowName: "Max",
+      initialValue: item.food.quantity,
+    );
+    stockRow = PantryItemRow(
+      rowName: "In stock",
+      initialValue: item.getStockQuantity(),
+      enabled: false,
+    );
+    totalRow = PantryItemRow(
+      rowName: "Total",
+      initialValue: item.getTotalRemainingQuantity(),
+      enabled: false,
+    );
+
+//TODO: Add expiration date + Remaining time + Expiration prediction
+    dateRow = PantryItemRow(
+      rowName: "Date",
+//      initialValue: item.items[0].expirationDate,
+    );
+    remainingTimeRow = PantryItemRow(
+        rowName: "Remaining",
+//        initialValue: item.items[0].getRemainingTime(),
+        enabled: false);
+    predictionRow = PantryItemRow(
+      rowName: "Prediction",
+//      initialValue: item.food.expirationPrediction,
+    );
+  }
+
+  void _saveChanges() {
+// TODO: Trigger card update on save
+    final ParsedPantryItem item =
+        InheritedPantryItemDialog.of(context).pantryItem;
+    item.food.name = 'XD';
   }
 }
