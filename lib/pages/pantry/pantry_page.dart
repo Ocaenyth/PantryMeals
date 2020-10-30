@@ -3,7 +3,7 @@ import 'package:pantry_meals/localization/app_localizations.dart';
 import 'package:pantry_meals/navigation/navigation_drawer.dart';
 import 'package:pantry_meals/pages/pantry/floating/add_food_dialog.dart';
 import 'package:pantry_meals/pages/pantry/items/card/informations/inherited_pantry_card.dart';
-import 'file:///E:/Dev/Projects/PantryMeals/lib/pages/pantry/items/card/pantry_item_card.dart';
+import 'package:pantry_meals/pages/pantry/items/card/pantry_item_card.dart';
 import 'package:pantry_meals/persistence/entities/food.dart';
 import 'package:pantry_meals/persistence/entities/pantry_item.dart';
 import 'package:pantry_meals/persistence/entities/parsed_pantry_item.dart';
@@ -42,7 +42,7 @@ class PantryPageState extends State<PantryPage> {
           for (ParsedPantryItem item in pantry ?? [])
             InheritedPantryCard(
               item: item,
-              child: PantryItemCard(),
+              child: PantryItemCard(pantryPageState: this),
             ),
         ],
       ),

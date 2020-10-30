@@ -14,6 +14,7 @@ class InheritedPantryItemDialog extends InheritedWidget {
   bool updateShouldNotify(InheritedWidget oldWidget) => true;
 
   static InheritedPantryItemDialog of(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<InheritedPantryItemDialog>();
+    return context
+        .dependOnInheritedWidgetOfExactType<InheritedPantryItemDialog>();
   }
 }

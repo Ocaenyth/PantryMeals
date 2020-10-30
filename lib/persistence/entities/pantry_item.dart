@@ -14,6 +14,7 @@ import 'package:pantry_meals/persistence/entities/food.dart';
 class PantryItem {
   static const tableName = "pantry_item";
 
+//TODO: Add expiration date
   @PrimaryKey(autoGenerate: true)
   int id;
 

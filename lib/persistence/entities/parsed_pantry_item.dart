@@ -7,6 +7,20 @@ class ParsedPantryItem {
 
   ParsedPantryItem({this.food});
 
+  int getTotalRemainingQuantity() {
+    int total = 0;
+    for (PantryItem item in this.items) {
+      total += item.leftQuantity;
+    }
+    return total;
+  }
+
+  int getStockQuantity() {
+    return this.items.length;
+  }
+
+
+
   factory ParsedPantryItem.fromPantryItemList(List<PantryItem> items) {
     ParsedPantryItem parsed = ParsedPantryItem();
 
