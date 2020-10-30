@@ -86,7 +86,7 @@ class PantryItemDialogState extends State<PantryItemDialog> {
                 width: 300,
               ),
               Text(
-                "Brioche tressée",
+                item.food.name,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 28,
