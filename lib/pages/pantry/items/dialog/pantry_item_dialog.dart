@@ -5,7 +5,10 @@ import 'package:pantry_meals/localization/app_localizations.dart';
 import 'package:pantry_meals/pages/pantry/items/dialog/inherited_pantry_item_dialog.dart';
 import 'package:pantry_meals/pages/pantry/items/dialog/pantry_item_name_field.dart';
 import 'package:pantry_meals/pages/pantry/items/dialog/pantry_item_row.dart';
+import 'package:pantry_meals/pages/pantry/pantry_page.dart';
 import 'package:pantry_meals/persistence/entities/parsed_pantry_item.dart';
+import 'package:pantry_meals/services/food_service.dart';
+import 'package:pantry_meals/services/pantry_service.dart';
 
 class PantryItemDialog extends StatefulWidget {
   @override
@@ -150,11 +153,19 @@ class PantryItemDialogState extends State<PantryItemDialog> {
     item.items[0].leftQuantity = this.remainingQtyRow.getValue();
     item.food.servingQuantity = this.servingRow.getValue();
     item.food.quantity = this.maxQuantityRow.getValue();
+
+    FoodService.updateFood(item.food);
+    PantryService.updatePantryItem(item.items[0]);
+
+    // TODO: Optimization -> update the card instead of the whole page
+    final PantryPageState pageState =
+        InheritedPantryItemDialog.of(context).pantryPageState;
+    pageState.updatePantry();
+
     Fluttertoast.showToast(
         msg: 'Changes have been saved',
         backgroundColor: CupertinoColors.lightBackgroundGray,
         textColor: Colors.black);
     Navigator.pop(context);
-// TODO: Trigger card update on save
   }
 }

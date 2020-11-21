@@ -17,4 +17,7 @@ abstract class PantryItemDao {
 
   @insert
   Future<int> insertPantryItem(PantryItem pantryItem);
+
+  @update
+  Future<int> updatePantryItem(PantryItem pantryItem);
 }

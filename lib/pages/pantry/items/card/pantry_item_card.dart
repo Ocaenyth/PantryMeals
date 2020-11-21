@@ -4,10 +4,19 @@ import 'package:pantry_meals/pages/pantry/items/card/pantry_item_informations.da
 import 'package:pantry_meals/pages/pantry/items/dialog/inherited_pantry_item_dialog.dart';
 import 'package:pantry_meals/pages/pantry/pantry_page.dart';
 
-class PantryItemCard extends StatelessWidget {
+class PantryItemCard extends StatefulWidget {
   final PantryPageState pantryPageState;
 
   PantryItemCard({this.pantryPageState});
+
+  final PantryItemCardState state = PantryItemCardState();
+
+  @override
+  State<StatefulWidget> createState() => this.state;
+}
+
+class PantryItemCardState extends State<PantryItemCard> {
+  PantryItemCardState();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +59,7 @@ class PantryItemCard extends StatelessWidget {
     showDialog(
       context: context,
       builder: (_) => InheritedPantryItemDialog(
-        pantryPageState: this.pantryPageState,
+        pantryPageState: this.widget.pantryPageState,
         pantryItem: InheritedPantryCard.of(context).item,
       ),
     );

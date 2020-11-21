@@ -22,7 +22,7 @@ class PantryPageState extends State<PantryPage> {
   @override
   void initState() {
     super.initState();
-    this._updatePantry();
+    this.updatePantry();
   }
 
   @override
@@ -75,7 +75,7 @@ class PantryPageState extends State<PantryPage> {
     );
   }
 
-  void _updatePantry() async {
+  void updatePantry() async {
     List<PantryItem> items = await _fetchPantryItems();
     List<ParsedPantryItem> parsedPantry = await _buildParsedPantry(items);
 

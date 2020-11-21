@@ -31,4 +31,9 @@ class FoodService {
     AppDatabase db = await AppDatabase.getDatabase();
     return db.foodDao.findAllFood();
   }
+
+  static Future<int> updateFood(Food updatedFood) async {
+    AppDatabase db = await AppDatabase.getDatabase();
+    return db.foodDao.updateFood(updatedFood);
+  }
 }

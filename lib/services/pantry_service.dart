@@ -25,4 +25,9 @@ class PantryService {
     AppDatabase db = await AppDatabase.getDatabase();
     return db.pantryItemDao.findAllPantryItems();
   }
+
+  static Future<int> updatePantryItem(PantryItem updatedPI) async {
+    AppDatabase db = await AppDatabase.getDatabase();
+    return db.pantryItemDao.updatePantryItem(updatedPI);
+  }
 }
