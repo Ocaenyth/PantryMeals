@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pantry_meals/localization/app_localizations.dart';
 import 'package:pantry_meals/pages/pantry/items/dialog/inherited_pantry_item_dialog.dart';
 import 'package:pantry_meals/pages/pantry/items/dialog/pantry_item_name_field.dart';
@@ -15,7 +17,7 @@ class PantryItemDialogState extends State<PantryItemDialog> {
 
   PantryItemRow remainingQtyRow;
   PantryItemRow servingRow;
-  PantryItemRow maxRow;
+  PantryItemRow maxQuantityRow;
   PantryItemRow stockRow;
   PantryItemRow totalRow;
 
@@ -68,7 +70,7 @@ class PantryItemDialogState extends State<PantryItemDialog> {
                     ),
                     remainingQtyRow,
                     servingRow,
-                    maxRow,
+                    maxQuantityRow,
                     stockRow,
                     totalRow,
                     Text(
@@ -85,7 +87,7 @@ class PantryItemDialogState extends State<PantryItemDialog> {
                       color: Theme.of(context).accentColor,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
-                      onPressed: () {},
+                      onPressed: () => _saveChanges(context),
                       child: Text(AppLocalizations.of(context).saveButton),
                     )
                   ],
@@ -109,15 +111,15 @@ class PantryItemDialogState extends State<PantryItemDialog> {
     );
     servingRow = PantryItemRow(
       rowName: "Per serving",
-      initialValue: item.food.servingQuantity.round(),
+      initialValue: item.food.servingQuantity,
     );
-    maxRow = PantryItemRow(
+    maxQuantityRow = PantryItemRow(
       rowName: "Max",
       initialValue: item.food.quantity,
     );
     stockRow = PantryItemRow(
       rowName: "In stock",
-      initialValue: item.getStockQuantity(),
+      initialValue: item.getStockQuantity().toDouble(),
       enabled: false,
     );
     totalRow = PantryItemRow(
@@ -141,10 +143,18 @@ class PantryItemDialogState extends State<PantryItemDialog> {
     );
   }
 
-  void _saveChanges() {
-// TODO: Trigger card update on save
+  void _saveChanges(BuildContext context) {
     final ParsedPantryItem item =
         InheritedPantryItemDialog.of(context).pantryItem;
-    item.food.name = 'XD';
+    item.food.name = itemNameTextField.getValue();
+    item.items[0].leftQuantity = this.remainingQtyRow.getValue();
+    item.food.servingQuantity = this.servingRow.getValue();
+    item.food.quantity = this.maxQuantityRow.getValue();
+    Fluttertoast.showToast(
+        msg: 'Changes have been saved',
+        backgroundColor: CupertinoColors.lightBackgroundGray,
+        textColor: Colors.black);
+    Navigator.pop(context);
+// TODO: Trigger card update on save
   }
 }

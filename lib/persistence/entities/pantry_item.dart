@@ -24,7 +24,7 @@ class PantryItem {
   @ignore
   Food food;
 
-  int leftQuantity;
+  double leftQuantity;
 
   PantryItem({this.id, this.foodId, this.food, this.leftQuantity});
 }

@@ -10,6 +10,10 @@ class PantryItemNameField extends StatefulWidget {
 
   @override
   State<StatefulWidget> createState() => this.state;
+
+  String getValue() {
+    return this.state.getValue();
+  }
 }
 
 class _PantryItemNameFieldState extends State<PantryItemNameField> {
@@ -25,8 +29,13 @@ class _PantryItemNameFieldState extends State<PantryItemNameField> {
 
   void setValue(String value) {
     this.setState(() {
+      this.value = value;
       this.controller.value = this.controller.value.copyWith(text: value);
     });
+  }
+
+  String getValue() {
+    return this.controller.text;
   }
 
   @override

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class PantryItemRow extends StatefulWidget {
   final String rowName;
   final bool enabled;
-  final int initialValue;
+  final double initialValue;
   final _PantryItemRowState state = _PantryItemRowState();
 
   PantryItemRow({this.rowName, this.enabled, this.initialValue});
@@ -13,13 +13,17 @@ class PantryItemRow extends StatefulWidget {
 
   void updateItem() {}
 
-  void setValue(int value) {
-    state.setValue(value);
+  void setValue(double value) {
+    this.state.setValue(value);
+  }
+
+  double getValue() {
+    return this.state.getValue();
   }
 }
 
 class _PantryItemRowState extends State<PantryItemRow> {
-  int value;
+  double value;
 
   final TextEditingController controller = TextEditingController();
 
@@ -30,11 +34,15 @@ class _PantryItemRowState extends State<PantryItemRow> {
         this.controller.value.copyWith(text: value.toString());
   }
 
-  void setValue(int value) {
+  void setValue(double value) {
     this.setState(() {
       this.controller.value =
           this.controller.value.copyWith(text: value.toString());
     });
+  }
+
+  double getValue() {
+    return double.parse(this.controller.text);
   }
 
   @override
