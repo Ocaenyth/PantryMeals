@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pantry_meals/pages/pantry/items/informations/inherited_pantry_card.dart';
+import 'package:pantry_meals/pages/pantry/items/card/informations/inherited_pantry_card.dart';
 
 class PantryItemQuantity extends StatelessWidget {
   @override

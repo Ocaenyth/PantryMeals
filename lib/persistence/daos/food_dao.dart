@@ -14,4 +14,7 @@ abstract class FoodDao {
 
   @insert
   Future<int> insertFood(Food food);
+
+  @update
+  Future<int> updateFood(Food food);
 }

@@ -1,8 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:pantry_meals/pages/pantry/items/informations/inherited_pantry_card.dart';
-import 'package:pantry_meals/pages/pantry/items/pantry_item_informations.dart';
+import 'package:pantry_meals/pages/pantry/items/card/informations/inherited_pantry_card.dart';
+import 'package:pantry_meals/pages/pantry/items/card/pantry_item_informations.dart';
+import 'package:pantry_meals/pages/pantry/items/dialog/inherited_pantry_item_dialog.dart';
+import 'package:pantry_meals/pages/pantry/pantry_page.dart';
 
-class PantryItemCard extends StatelessWidget {
+class PantryItemCard extends StatefulWidget {
+  final PantryPageState pantryPageState;
+
+  PantryItemCard({this.pantryPageState});
+
+  final PantryItemCardState state = PantryItemCardState();
+
+  @override
+  State<StatefulWidget> createState() => this.state;
+}
+
+class PantryItemCardState extends State<PantryItemCard> {
+  PantryItemCardState();
+
   @override
   Widget build(BuildContext context) {
     return IntrinsicHeight(
@@ -14,7 +29,7 @@ class PantryItemCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16.0),
         ),
         child: InkWell(
-//        TODO: Add ontap > open item infos
+          onTap: () => _openItemDialog(context),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
@@ -36,6 +51,16 @@ class PantryItemCard extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  void _openItemDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => InheritedPantryItemDialog(
+        pantryPageState: this.widget.pantryPageState,
+        pantryItem: InheritedPantryCard.of(context).item,
       ),
     );
   }

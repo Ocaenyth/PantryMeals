@@ -1,5 +1,5 @@
 import 'package:floor/floor.dart';
-import 'package:pantry_meals/business/exceptions/product_not_found_exception.dart';
+import 'package:pantry_meals/exceptions/product_not_found_exception.dart';
 
 @Entity(
   tableName: Food.tableName,
@@ -16,7 +16,7 @@ class Food {
 
   String barcode;
   String name;
-  int quantity;
+  double quantity;
   double servingQuantity;
   String nutriscore;
   String expirationDate;
@@ -44,7 +44,7 @@ class Food {
       id: json['id'],
       barcode: json['code'],
       name: json['product']['product_name'],
-      quantity: int.parse(quantity.toString()),
+      quantity: double.parse(quantity.toString()),
       servingQuantity: double.parse(servingQuantity.toString()),
       nutriscore: json['product']['nutriscore_grade'],
       expirationDate: json['product']['expiration_date'],
