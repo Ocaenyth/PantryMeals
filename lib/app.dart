@@ -28,6 +28,7 @@ class _AppState extends State<App> {
       supportedLocales: supportedLocales,
       locale: locale,
       title: _title,
+      theme: ThemeData(brightness: Brightness.dark),
       home: PantryPage(),
     );
   }

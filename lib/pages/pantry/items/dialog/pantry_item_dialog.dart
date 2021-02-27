@@ -87,7 +87,6 @@ class PantryItemDialogState extends State<PantryItemDialog> {
                     remainingTimeRow,
                     predictionRow,
                     RaisedButton(
-                      color: Theme.of(context).accentColor,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0)),
                       onPressed: () => _saveChanges(context),
